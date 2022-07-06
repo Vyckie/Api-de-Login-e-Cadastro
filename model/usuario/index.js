@@ -16,6 +16,10 @@ const Usuario = dbConnection.define("Usuario",
             type: DataTypes.STRING,
             allowNull: false
         },
+        senha: {
+            type: DataTypes.STRING,
+            allownull:false
+        },
         cpf: {
             type: DataTypes.STRING,
             allowNull: false

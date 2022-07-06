@@ -33,7 +33,7 @@ const Usuario = dbConnection.define("Usuario",
             type: DataTypes.STRING
         },
         dataDeNascimento: {
-            type: DataTypes.INTEGER
+            type: DataTypes.DATE
         }
     },
     {

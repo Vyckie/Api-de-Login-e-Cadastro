@@ -35,5 +35,37 @@ module.exports = {
                 next(err);
             });
         }
+    },
+    
+    async findOne(req, res){
+        const {userEmail} = req.params;
+        const data = await Usuario.findOne({
+            where:{
+                email: userEmail
+            }
+        });
+        if(data != undefined){
+            res.status(200).json(data)
+        }else{
+            res.status(404).json({ message: "Usuario não existe "})
+        }
+    },
+
+    async update(req, res){
+        const{userEmail}=req.params;
+        await Usuario.update(req.body,{
+            where: {email: userEmail}
+        })
+        
+
+    },
+
+    async destroy(req, res){
+        const {userEmail} = req.params;
+        await Usuario.destroy({
+            where: {email: userEmail}
+        });
+        res.status(404).send();
     }
+
 }

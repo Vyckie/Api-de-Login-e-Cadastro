@@ -1,12 +1,23 @@
 const Express = require('express');
 
+
 const database = require('./database');
 
 const routes = require('./routes');
 
 const app = Express();
 
+const cors = require('cors');
+
 app.use(Express.json());
+
+
+const corsParams = {
+    origin: "*",
+    methods: ["GET", "PUT", "POST", "DELETE"]
+    }
+
+app.use(cors(corsParams));
 
 routes.setRoutes(app);
 
